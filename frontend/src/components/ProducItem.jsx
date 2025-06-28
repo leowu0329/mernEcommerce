@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ProducItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
@@ -21,6 +22,12 @@ const ProducItem = ({ id, image, name, price }) => {
       </p>
     </Link>
   );
+};
+ProducItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  image: PropTypes.arrayOf(PropTypes.string).isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default ProducItem;
