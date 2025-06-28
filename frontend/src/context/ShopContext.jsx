@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { products } from '../assets/assets';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
@@ -38,9 +38,22 @@ const ShopContextProvider = (props) => {
     setCartItems(cartData);
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  // add to card counter
+  const getCartCount = () => {
+    let totalCount = 0;
+    for (const items in cartItems) {
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalCount += cartItems[items][item];
+          }
+        } catch (error) {
+          console.error('Error calculating cart count:', error);
+        }
+      }
+    }
+    return totalCount;
+  };
 
   const value = {
     products,
@@ -52,6 +65,7 @@ const ShopContextProvider = (props) => {
     setShowSearch,
     cartItems,
     addToCart,
+    getCartCount,
   };
 
   ShopContextProvider.propTypes = {
