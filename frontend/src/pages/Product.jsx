@@ -82,6 +82,41 @@ const Product = () => {
               ))}
             </div>
           </div>
+
+          <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">
+            ADD TO CART
+          </button>
+
+          <hr className="mt-8 sm:w-4/5" />
+
+          <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
+            <p>100% Original product.</p>
+            <p>Cash on delivery is available on this products.</p>
+            <p>Easy return and exchange policy within 7 days.</p>
+          </div>
+        </div>
+      </div>
+
+      {/*---------- Description & Review Section ----------*/}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border px-5 py-3 text-sm">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+        </div>
+
+        <div className="flex flex-col gap-4 border px-6 py-4 text-sm text-gray-500">
+          <p>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia.
+          </p>
+          <p>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia.
+          </p>
         </div>
       </div>
     </div>
