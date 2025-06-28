@@ -32,9 +32,11 @@ const Footer = () => {
       </div>
 
       <div>
+        Add commentMore actions
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright 2024 @ forever.com - All Right Reserved
+          Copyright 2024 @ forever.com - All Right Reserved Design by Pranto
+          Kumar
         </p>
       </div>
     </div>
