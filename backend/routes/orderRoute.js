@@ -1,20 +1,24 @@
 import express from 'express';
 import {
-  listOrders,
-  updateOrderStatus,
-  createOrder,
+  placeOrder,
+  placeOrderStripe,
+  placeOrderRazorpay,
+  allOrders,
+  userOrders,
+  updateStatus,
 } from '../controllers/orderController.js';
 import adminAuth from '../middleware/adminAuth.js';
+import authUser from '../middleware/auth.js';
 
 const orderRouter = express.Router();
 
-// Get all orders (admin only)
-orderRouter.post('/list', adminAuth, listOrders);
+orderRouter.post('/list', adminAuth, allOrders);
+orderRouter.post('/status', adminAuth, updateStatus);
 
-// Update order status (admin only)
-orderRouter.post('/status', adminAuth, updateOrderStatus);
+orderRouter.post('/place', authUser, placeOrder);
+orderRouter.post('/stripe', authUser, placeOrderStripe);
+orderRouter.post('/razorpay', authUser, placeOrderRazorpay);
 
-// Create new order (public)
-orderRouter.post('/create', createOrder);
+orderRouter.post('/userorders', authUser, userOrders);
 
 export default orderRouter;
