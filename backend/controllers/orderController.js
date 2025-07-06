@@ -24,7 +24,15 @@ const placeOrder = async (req, res) => {
 };
 const placeOrderStripe = async (req, res) => {};
 const placeOrderRazorpay = async (req, res) => {};
-const allOrders = async (req, res) => {};
+const allOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 const userOrders = async (req, res) => {
   try {
     const { userId } = req.body;
